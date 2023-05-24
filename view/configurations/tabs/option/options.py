@@ -13,7 +13,7 @@ from PyQt6.QtWidgets import QFileDialog
 
 from view.configurations.tabs.general.typesproceedings import TypesProceedings as TypesproceedingsView
 from view.configurations.tabs.general.network import Network as NetworkView
-from controller.configurations.tabs.general.general import General as GeneralController
+from controller.configurations.tabs.option.option import Option as OptionController
 
 import os
 
@@ -26,7 +26,7 @@ class Options(QtWidgets.QWidget):
 
         super(Options, self).__init__(parent)
 
-        self.controller = GeneralController()
+        self.controller = OptionController()
         self.configuration = self.controller.configuration
 
         self.setObjectName("configuration_option")
@@ -94,15 +94,22 @@ class Options(QtWidgets.QWidget):
         self.cases_folder.setText(cases_folder)
 
     def __set_current_config_values(self):
-        pass
+        self.whois_checkbox.setChecked(self.controller.options['Enable Network Check'])
+        self.headers_checkbox.setChecked(self.controller.options['Whois'])
+        self.SSLkeylog_checkbox.setChecked(self.controller.options['Headers'])
+        self.Nslookup_checkbox.setChecked(self.controller.options['SSLkeylog'])
+        self.SSLCertificate_checkbox.setChecked(self.controller.options['Nslookup'])
+        self.traceroute_checkbox.setChecked(self.controller.options['SSLCertificate'])
+        self.enable_network_tools_box.setChecked(self.controller.options['Traceroute'])
+
     def __get_current_values(self):
 
         for keyword in self.configuration:
             item = self.findChild(QtCore.QObject, keyword)
 
             if item is not None:
-                if isinstance(item, QtWidgets.QComboBox) is not False and item.currentText():
-                    item = item.currentText()
+                if isinstance(item, QtWidgets.QCheckBox):
+                    item = item.isChecked()
                 elif isinstance(item, QtWidgets.QLineEdit) is not False and item.text():
                     item = item.text()
                 elif isinstance(item, QtWidgets.QPlainTextEdit) is not False and item.toPlainText():
@@ -111,8 +118,6 @@ class Options(QtWidgets.QWidget):
                 self.configuration[keyword] = item
 
     def accept(self) -> None:
-        self.group_box_types_proceedings.accept()
-        self.group_box_network_check.accept()
         self.__get_current_values()
         self.controller.configuration = self.configuration
 

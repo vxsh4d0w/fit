@@ -1,0 +1,4 @@
+fit.db
+*.xml
+*.idea
+.gitignore

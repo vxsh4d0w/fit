@@ -99,7 +99,6 @@ class General(QtWidgets.QWidget):
 
    def accept(self) -> None:
       self.group_box_types_proceedings.accept()
-      self.group_box_network_check.accept()
       self.__get_current_values()
       self.controller.configuration = self.configuration
       

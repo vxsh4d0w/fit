@@ -118,9 +118,7 @@ class Network(QtWidgets.QGroupBox):
 
 
   def accept(self) -> None:
-    self.__get_current_values()
-    self.controller.configuration = self.configuration
-  
+       pass
   def reject(self) -> None:
     pass
 
