@@ -41,29 +41,32 @@ class Options(QtWidgets.QWidget):
         self.enable_network_tools_box.setGeometry(QtCore.QRect(10, 20, 691, 171))
         self.enable_network_tools_box.setObjectName("enable_network_tools_box")
 
-        self.whois = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.whois.setGeometry(QtCore.QRect(20, 20, 251, 17))
-        self.whois.setObjectName("whois")
+        self.whois_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.whois_checkbox.setGeometry(QtCore.QRect(20, 20, 251, 17))
+        self.whois_checkbox.setObjectName("whois_checkbox")
 
-        self.delete_project_folder_3 = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.delete_project_folder_3.setGeometry(QtCore.QRect(20, 60, 391, 17))
-        self.delete_project_folder_3.setObjectName("delete_project_folder_3")
+        self.headers_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.headers_checkbox.setGeometry(QtCore.QRect(20, 60, 391, 17))
+        self.headers_checkbox.setObjectName("headers_checkbox")
 
-        self.load_css_3 = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.load_css_3.setGeometry(QtCore.QRect(20, 80, 91, 17))
-        self.load_css_3.setChecked(True)
-        self.load_css_3.setObjectName("load_css_3")
-        self.load_images_3 = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.load_images_3.setGeometry(QtCore.QRect(20, 100, 111, 17))
-        self.load_images_3.setChecked(True)
-        self.load_images_3.setObjectName("load_images_3")
-        self.zip_project_folder_3 = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.zip_project_folder_3.setGeometry(QtCore.QRect(20, 40, 331, 17))
-        self.zip_project_folder_3.setObjectName("zip_project_folder_3")
-        self.load_javascript_3 = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
-        self.load_javascript_3.setGeometry(QtCore.QRect(20, 120, 121, 17))
-        self.load_javascript_3.setChecked(True)
-        self.load_javascript_3.setObjectName("load_javascript_3")
+        self.traceroute_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.traceroute_checkbox.setGeometry(QtCore.QRect(20, 80, 91, 17))
+        self.traceroute_checkbox.setChecked(True)
+        self.traceroute_checkbox.setObjectName("traceroute_checkbox")
+
+        self.SSLkeylog_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.SSLkeylog_checkbox.setGeometry(QtCore.QRect(20, 100, 111, 17))
+        self.SSLkeylog_checkbox.setChecked(True)
+        self.SSLkeylog_checkbox.setObjectName("SSLkeylog_checkbox")
+
+        self.Nslookup_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.Nslookup_checkbox.setGeometry(QtCore.QRect(20, 40, 331, 17))
+        self.Nslookup_checkbox.setObjectName("Nslookup_checkbox")
+
+        self.SSLCertificate_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
+        self.SSLCertificate_checkbox.setGeometry(QtCore.QRect(20, 120, 121, 17))
+        self.SSLCertificate_checkbox.setChecked(True)
+        self.SSLCertificate_checkbox.setObjectName("SSLCertificate_checkbox")
 
 
         # PROCEEDINGS TYPE LIST
@@ -73,7 +76,14 @@ class Options(QtWidgets.QWidget):
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("Options", "Options"))
         self.enable_network_tools_box.setTitle(_translate("Options", "Enable Network Check"))
-        self.whois.setText(_translate("Options", "Whois"))
+        self.whois_checkbox.setText(_translate("Options", "Whois"))
+        self.headers_checkbox.setText(_translate("Options", "Headers"))
+        self.SSLkeylog_checkbox.setText(_translate("Options", "SSLkeylog"))
+        self.Nslookup_checkbox.setText(_translate("Options", "Nslookup"))
+        self.SSLCertificate_checkbox.setText(_translate("Options", "SSLCertificate"))
+        self.traceroute_checkbox.setText(_translate("Form", "Traceroute"))
+
+
 
 
     def __select_cases_folder(self):

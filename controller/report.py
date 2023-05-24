@@ -31,7 +31,7 @@ class Report:
         phrases = ReportText()
         if type == 'web':
             try:
-                with open(os.path.join(self.cases_folder_path, 'whois.txt'), "r") as f:
+                with open(os.path.join(self.cases_folder_path, 'whois_checkbox.txt'), "r") as f:
                     whois_text = f.read()
                     f.close()
             except:
@@ -79,7 +79,7 @@ class Report:
                 log=acquisition_files['acquisition.log'], logd=phrases.TEXT['logd'],
                 pcap=acquisition_files['acquisition.pcap'], pcapd=phrases.TEXT['pcapd'],
                 zip=acquisition_files[fnmatch.filter(acquisition_files.keys(), '*.zip')[0]], zipd=phrases.TEXT['zipd'],
-                whois=acquisition_files['whois.txt'], whoisd=phrases.TEXT['whoisd'],
+                whois=acquisition_files['whois_checkbox.txt'], whoisd=phrases.TEXT['whoisd'],
                 headers=acquisition_files['headers.txt'], headersd=phrases.TEXT['headersd'],
                 nslookup=acquisition_files['nslookup.txt'], nslookupd=phrases.TEXT['pngd'],
                 cer=acquisition_files['server.cer'], cerd=phrases.TEXT['cerd'],
@@ -168,8 +168,8 @@ class Report:
             acquisition_files['acquisition.pcap'] = "File non prodotto"
         if not any(value.endswith('.zip') for value in acquisition_files.values()):
             acquisition_files['acquisition.zip'] = "File non prodotto"
-        if not 'whois.txt' in acquisition_files.values():
-            acquisition_files['whois.txt'] = "File non prodotto"
+        if not 'whois_checkbox.txt' in acquisition_files.values():
+            acquisition_files['whois_checkbox.txt'] = "File non prodotto"
         if not 'headers.txt' in acquisition_files.values():
             acquisition_files['headers.txt'] = "File non prodotto"
         if not 'nslookup.txt' in acquisition_files.values():

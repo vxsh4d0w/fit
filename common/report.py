@@ -84,7 +84,7 @@ class ReportText:
             'logd': "Informazioni generate dai vari componenti del sistema",
             'pcapd': "Registrazione del traffico di rete",
             'zipd': "Archivio contenente l'acquisizione",
-            'whoisd': "File whois",
+            'whoisd': "File whois_checkbox",
             'pngd': "Screenshot della pagina",
             'waczd': "Archivio WACZ dell'acquisizione",
             'dumpd': "File di analisi del traffico",

@@ -31,11 +31,11 @@ class Network(QtWidgets.QGroupBox):
 
     self.setGeometry(QtCore.QRect(10, 260, 691, 101))
     self.setObjectName("group_box_network_check")
+    self.move(10,200)
 
     #NTP GROUPBOX
     self.group_box_ntp_configuration = QtWidgets.QGroupBox(self)
     self.group_box_ntp_configuration.setGeometry(QtCore.QRect(10, 30, 251, 51))
-
     #NTP SERVER 
     self.group_box_ntp_configuration.setObjectName("group_box_ntp_configuration")
     self.ntp_server = QtWidgets.QLineEdit(self.group_box_ntp_configuration)

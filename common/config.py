@@ -96,17 +96,17 @@ class LogConfigTools:
             logger.propagate = False
 
     def set_web_loggers(self):
-        self.config['formatters']['whois'] = {'class': 'logging.Formatter', 'format': '%(message)s'}
+        self.config['formatters']['whois_checkbox'] = {'class': 'logging.Formatter', 'format': '%(message)s'}
         self.config['formatters']['headers'] = {'class': 'logging.Formatter', 'format': '%(message)s'}
         self.config['formatters']['nslookup'] = {'class': 'logging.Formatter', 'format': '%(message)s'}
 
-        self.config['handlers']['fwhois'] = {'class': 'logging.FileHandler', 'filename': 'whois.txt', 'mode': 'w',
-                                            'formatter': 'whois'}
+        self.config['handlers']['fwhois'] = {'class': 'logging.FileHandler', 'filename': 'whois_checkbox.txt', 'mode': 'w',
+                                            'formatter': 'whois_checkbox'}
         self.config['handlers']['fheaders'] = {'class': 'logging.FileHandler', 'filename': 'headers.txt', 'mode': 'w',
                                               'formatter': 'headers'}
         self.config['handlers']['fnslookup'] = {'class': 'logging.FileHandler', 'filename': 'nslookup.txt', 'mode': 'w',
                                                'formatter': 'nslookup'}
 
-        self.config['loggers']['whois'] = {'handlers': ['fwhois'], 'level': 'INFO'}
+        self.config['loggers']['whois_checkbox'] = {'handlers': ['fwhois'], 'level': 'INFO'}
         self.config['loggers']['headers'] = {'handlers': ['fheaders'], 'level': 'INFO'}
         self.config['loggers']['nslookup'] = {'handlers': ['fnslookup'], 'level': 'INFO'}

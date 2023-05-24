@@ -15,7 +15,7 @@ from common.constants import logger as Logger, state, status, tasks
 from view.acquisition.tasks.task import AcquisitionTask
 
 
-logger = logging.getLogger('whois')
+logger = logging.getLogger('whois_checkbox')
 
 class AcquisitionWhois(AcquisitionTask):
 
