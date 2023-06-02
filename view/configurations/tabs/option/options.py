@@ -86,21 +86,14 @@ class Options(QtWidgets.QWidget):
 
 
 
-    def __select_cases_folder(self):
-        cases_folder = QtWidgets.QFileDialog.getExistingDirectory(self,
-                                                                  'Select Cases Folder',
-                                                                  os.path.expanduser(self.cases_folder.text()),
-                                                                  QFileDialog.Option.ShowDirsOnly)
-        self.cases_folder.setText(cases_folder)
-
     def __set_current_config_values(self):
-        self.whois_checkbox.setChecked(self.controller.options['Enable Network Check'])
-        self.headers_checkbox.setChecked(self.controller.options['Whois'])
-        self.SSLkeylog_checkbox.setChecked(self.controller.options['Headers'])
-        self.Nslookup_checkbox.setChecked(self.controller.options['SSLkeylog'])
-        self.SSLCertificate_checkbox.setChecked(self.controller.options['Nslookup'])
-        self.traceroute_checkbox.setChecked(self.controller.options['SSLCertificate'])
-        self.enable_network_tools_box.setChecked(self.controller.options['Traceroute'])
+        self.enable_network_tools_box.setChecked(self.controller.configuration['enable_network_check'])
+        self.whois_checkbox.setChecked(self.controller.configuration['whois'])
+        self.headers_checkbox.setChecked(self.controller.configuration['headers'])
+        self.SSLkeylog_checkbox.setChecked(self.controller.configuration['SSLkeylog'])
+        self.Nslookup_checkbox.setChecked(self.controller.configuration['Nslookup'])
+        self.SSLCertificate_checkbox.setChecked(self.controller.configuration['SSLcertificate'])
+        self.traceroute_checkbox.setChecked(self.controller.configuration['traceroute'])
 
     def __get_current_values(self):
 

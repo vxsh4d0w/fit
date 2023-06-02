@@ -13,5 +13,5 @@ class Option():
         return self._options
 
     @configuration.setter
-    def options(self, options):
+    def configuration(self, options):
         self.model.update(options)
