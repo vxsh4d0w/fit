@@ -4,14 +4,14 @@ class Option():
 
     def __init__(self):
         self.model = OptionModel()
-        self._options = self.model.get()
-        if self._options:
-           self._options = {key: value for key, value in self._options[0].__dict__.items() if not key.startswith("_") and not key.startswith("__") and not key.startswith("db")}
+        self._configuration = self.model.get()
+        if self._configuration:
+           self._configuration = {key: value for key, value in self._configuration[0].__dict__.items() if not key.startswith("_") and not key.startswith("__") and not key.startswith("db")}
 
     @property
     def configuration(self):
-        return self._options
+        return self._configuration
 
     @configuration.setter
-    def configuration(self, options):
-        self.model.update(options)
+    def configuration(self, configuration):
+        self.model.update(configuration)

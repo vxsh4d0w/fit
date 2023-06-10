@@ -74,20 +74,19 @@ class Options(QtWidgets.QWidget):
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        self.setWindowTitle(_translate("Options", "Options"))
-        self.enable_network_tools_box.setTitle(_translate("Options", "Enable Network Check"))
+        self.setWindowTitle(_translate("Options", "Network Option"))
+        self.enable_network_tools_box.setTitle(_translate("Options", "Enable Network"))
         self.whois_checkbox.setText(_translate("Options", "Whois"))
         self.headers_checkbox.setText(_translate("Options", "Headers"))
         self.SSLkeylog_checkbox.setText(_translate("Options", "SSLkeylog"))
         self.Nslookup_checkbox.setText(_translate("Options", "Nslookup"))
         self.SSLCertificate_checkbox.setText(_translate("Options", "SSLCertificate"))
-        self.traceroute_checkbox.setText(_translate("Form", "Traceroute"))
+        self.traceroute_checkbox.setText(_translate("Options", "Traceroute"))
 
 
 
 
     def __set_current_config_values(self):
-        self.enable_network_tools_box.setChecked(self.controller.configuration['enable_network_check'])
         self.whois_checkbox.setChecked(self.controller.configuration['whois'])
         self.headers_checkbox.setChecked(self.controller.configuration['headers'])
         self.SSLkeylog_checkbox.setChecked(self.controller.configuration['SSLkeylog'])
@@ -99,16 +98,9 @@ class Options(QtWidgets.QWidget):
 
         for keyword in self.configuration:
             item = self.findChild(QtCore.QObject, keyword)
-
-            if item is not None:
-                if isinstance(item, QtWidgets.QCheckBox):
-                    item = item.isChecked()
-                elif isinstance(item, QtWidgets.QLineEdit) is not False and item.text():
-                    item = item.text()
-                elif isinstance(item, QtWidgets.QPlainTextEdit) is not False and item.toPlainText():
-                    item = item.toPlainText()
-
-                self.configuration[keyword] = item
+            if isinstance(item, QtWidgets.QCheckBox):
+              item = item.isChecked()
+              self.configuration[keyword] = item
 
     def accept(self) -> None:
         self.__get_current_values()

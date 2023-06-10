@@ -21,7 +21,8 @@ class PacketCapture(Base):
     id = Column(Integer, primary_key = True)
     enabled = Column(Boolean)
     filename = Column(String)
-    
+
+
     def __init__(self) -> None:
         super().__init__()
         self.db = Db()
