@@ -14,7 +14,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
-class Option(Base):
+class NetworkTools(Base):
     __tablename__ = 'configuration_option'
     id = Column(Integer, primary_key=True)
     whois = Column(Boolean)
@@ -31,13 +31,13 @@ class Option(Base):
         self.metadata.create_all(self.db.engine)
 
     def get(self):
-        if self.db.session.query(Option).first() is None:
+        if self.db.session.query(NetworkTools).first() is None:
             self.set_default_values()
 
-        return self.db.session.query(Option).all()
+        return self.db.session.query(NetworkTools).all()
 
     def update(self, configuration):
-        self.db.session.query(Option).filter(Option.id == configuration.get('id')).update(configuration)
+        self.db.session.query(NetworkTools).filter(NetworkTools.id == configuration.get('id')).update(configuration)
         self.db.session.commit()
 
     def set_default_values(self):
