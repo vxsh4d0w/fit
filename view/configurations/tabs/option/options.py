@@ -43,30 +43,30 @@ class Options(QtWidgets.QWidget):
 
         self.whois_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.whois_checkbox.setGeometry(QtCore.QRect(20, 20, 251, 17))
-        self.whois_checkbox.setObjectName("whois_checkbox")
+        self.whois_checkbox.setObjectName("whois")
 
         self.headers_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.headers_checkbox.setGeometry(QtCore.QRect(20, 60, 391, 17))
-        self.headers_checkbox.setObjectName("headers_checkbox")
+        self.headers_checkbox.setObjectName("headers")
 
         self.traceroute_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.traceroute_checkbox.setGeometry(QtCore.QRect(20, 80, 91, 17))
         self.traceroute_checkbox.setChecked(True)
-        self.traceroute_checkbox.setObjectName("traceroute_checkbox")
+        self.traceroute_checkbox.setObjectName("traceroute")
 
         self.SSLkeylog_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.SSLkeylog_checkbox.setGeometry(QtCore.QRect(20, 100, 111, 17))
         self.SSLkeylog_checkbox.setChecked(True)
-        self.SSLkeylog_checkbox.setObjectName("SSLkeylog_checkbox")
+        self.SSLkeylog_checkbox.setObjectName("ssl_keylog")
 
         self.Nslookup_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.Nslookup_checkbox.setGeometry(QtCore.QRect(20, 40, 331, 17))
-        self.Nslookup_checkbox.setObjectName("Nslookup_checkbox")
+        self.Nslookup_checkbox.setObjectName("nslookup")
 
         self.SSLCertificate_checkbox = QtWidgets.QCheckBox(parent=self.enable_network_tools_box)
         self.SSLCertificate_checkbox.setGeometry(QtCore.QRect(20, 120, 121, 17))
         self.SSLCertificate_checkbox.setChecked(True)
-        self.SSLCertificate_checkbox.setObjectName("SSLCertificate_checkbox")
+        self.SSLCertificate_checkbox.setObjectName("ssl_certificate")
 
 
         # PROCEEDINGS TYPE LIST
@@ -89,9 +89,9 @@ class Options(QtWidgets.QWidget):
     def __set_current_config_values(self):
         self.whois_checkbox.setChecked(self.controller.configuration['whois'])
         self.headers_checkbox.setChecked(self.controller.configuration['headers'])
-        self.SSLkeylog_checkbox.setChecked(self.controller.configuration['SSLkeylog'])
-        self.Nslookup_checkbox.setChecked(self.controller.configuration['Nslookup'])
-        self.SSLCertificate_checkbox.setChecked(self.controller.configuration['SSLcertificate'])
+        self.SSLkeylog_checkbox.setChecked(self.controller.configuration['ssl_keylog'])
+        self.Nslookup_checkbox.setChecked(self.controller.configuration['nslookup'])
+        self.SSLCertificate_checkbox.setChecked(self.controller.configuration['ssl_certificate'])
         self.traceroute_checkbox.setChecked(self.controller.configuration['traceroute'])
 
     def __get_current_values(self):
@@ -105,6 +105,7 @@ class Options(QtWidgets.QWidget):
     def accept(self) -> None:
         self.__get_current_values()
         self.controller.configuration = self.configuration
+        self.group_box_network_check.accept()
 
     def reject(self) -> None:
         pass

@@ -20,9 +20,9 @@ class Option(Base):
     whois = Column(Boolean)
     headers = Column(Boolean)
     traceroute = Column(Boolean)
-    SSLkeylog = Column(Boolean)
-    Nslookup = Column(Boolean)
-    SSLcertificate = Column(Boolean)
+    ssl_keylog = Column(Boolean)
+    nslookup = Column(Boolean)
+    ssl_certificate = Column(Boolean)
 
 
     def __init__(self) -> None:
@@ -41,7 +41,12 @@ class Option(Base):
         self.db.session.commit()
 
     def set_default_values(self):
-
+        self.whois = False
+        self.headers = False
+        self.traceroute = False
+        self.ssl_keylog = False
+        self.nslookup = False
+        self.ssl_certificate = False
         self.db.session.add(self)
         self.db.session.commit()
 

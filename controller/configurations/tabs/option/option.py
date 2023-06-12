@@ -2,6 +2,8 @@ from model.configurations.tabs.option.option import Option as OptionModel
 
 class Option():
 
+    _configuration = {}
+
     def __init__(self):
         self.model = OptionModel()
         self._configuration = self.model.get()
@@ -15,3 +17,4 @@ class Option():
     @configuration.setter
     def configuration(self, configuration):
         self.model.update(configuration)
+
